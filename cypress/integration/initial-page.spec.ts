@@ -41,3 +41,19 @@ describe("dashboard", () => {
   //   })
   //   });
 });
+
+describe(`better Dashboard test`, () => {
+  beforeEach(() => {
+    cy.get("localhost:4200");
+  });
+
+  it(`contains basic informaiton after page load`, () => {
+    cy.contains("Tour of Heroes");
+    cy.title().should("eq", "Tour of Heroes");
+    cy.contains("Dashboard");
+    cy.get("nav a").eq(1).should("contain", "Heroes");
+    cy.contains("Top Heroes");
+    cy.contains("Hero Search");
+    cy.get("app-hero-search h4").should("contain", "Hero Search");
+  });
+});
