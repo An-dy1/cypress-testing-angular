@@ -67,6 +67,27 @@ A cypress window should open. If it does you are good.
 - Could also do this in a `cypress.env.json` file
 - Set a host, etc
 
+- use `cypress.json` to set default timeout:
+  `"defaultCommandTimeout": 30000`
+
+  - to run just one test in cypress:
+
+  `describe.only()`
+  `it.only()`
+
+  - to start cypress server in order to intercept traffic:
+
+  `cy.server();`
+
+  ```javascript
+  cy.route({
+    method: 'Put',
+    url: '/api/heroes/11',
+    response: { id: 11, name: 'New Name' },
+  });
+  ```
+
 ## questions
 
-1. As I'm working on a test, can I flag or label it so that cypress only reruns that test (quick feedback, I don't need all of them to run)
+1. As I'm working on a test, can I flag or label it so that cypress only reruns that test (quick feedback, I don't need all of them to run) -- yes: describe.only();
+2. Can you call `cy.route` multiple times if you want to intercept several api calls in one test?
