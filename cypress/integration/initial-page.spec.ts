@@ -126,6 +126,7 @@ describe.only(`When there is only one hero saved in the server`, () => {
 
     cy.visit('/dashboard');
 
-    cy.get('.module hero').should('have.length', 0);
+    // class is 'module hero'
+    cy.get('.module.hero').should('have.length', 1);
   });
 });
