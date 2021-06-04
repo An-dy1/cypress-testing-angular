@@ -54,6 +54,19 @@ A cypress window should open. If it does you are good.
 
 - Cypress is asynchronous
 
+- Very cool feature, Cypress configuration setting to intercept Google analytics traffic so that it doesn't count towards analytics:
+
+`"blacklistHosts": "[*google-analytics.com]"`
+
+- Make an and access env variables from the cypress.json file:
+
+`"env": { "defaultHeroName": "Big Dude" }`
+
+`Cypress.env(variableName)`
+
+- Could also do this in a `cypress.env.json` file
+- Set a host, etc
+
 ## questions
 
 1. As I'm working on a test, can I flag or label it so that cypress only reruns that test (quick feedback, I don't need all of them to run)
