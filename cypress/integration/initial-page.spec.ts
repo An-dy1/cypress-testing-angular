@@ -118,15 +118,20 @@
 describe.only(`When there is only one hero saved in the server`, () => {
   it(`Then only one hero div link should appear on the home page`, () => {
     cy.server();
+    // cy.route({
+    //   method: 'GET',
+    //   url: '/api/heroes',
+    //   response: [{ id: 11, name: 'New Name' }],
+    // });
     cy.route({
       method: 'GET',
       url: '/api/heroes',
-      response: [{ id: 11, name: 'New Name' }],
+      response: 'fixture:twoHeroes',
     });
 
     cy.visit('/dashboard');
 
     // class is 'module hero'
-    cy.get('.module.hero').should('have.length', 1);
+    cy.get('.module.hero').should('have.length', 2);
   });
 });
